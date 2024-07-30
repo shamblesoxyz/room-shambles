@@ -13,8 +13,9 @@
     --line-height-125: 1.25;
     --line-height-150: 1.5;
     --line-height-160: 1.6;
-    --color-radial-gradient: radial-gradient(rgba(234, 219, 194, 0.8), rgba(192, 202, 222, 0.05));
-    --color-linear-gradient: linear-gradient(rgba(234, 219, 194, 0.2), rgba(122, 154, 219, 0.2));
+    --color-radial-gradient: radial-gradient(rgba(234, 219, 194, 0.25), rgba(52, 77, 125, 0.1));
+    --color-linear-gradient-light: linear-gradient(to right, rgba(234, 219, 194, 0.05), rgba(122, 154, 219, 0.05));
+    --color-linear-gradient: linear-gradient(to right, rgba(234, 219, 194, 0.2), rgba(122, 154, 219, 0.2));
 }
 
 
@@ -25,7 +26,7 @@
     --color-on-primary: rgb(33, 42, 55);
     --color-neutral: rgb(192, 202, 222);
     --color-bluring-low: rgba(192, 202, 222, 0.05);
-    --color-bluring-medium: rgba(192, 202, 222, 0.1);
+    --color-bluring-medium: rgba(192, 202, 222, 0.15);
     --color-bluring-high: rgba(33, 42, 55, 0.15);
     --color-bluring-highest: rgba(33, 42, 55, 0.40);
 }

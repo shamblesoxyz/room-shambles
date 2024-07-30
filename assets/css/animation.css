@@ -4,48 +4,66 @@
     }
 }
 
-.category-card {
+.card-container {
     animation-name: scrollLeft;
     animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    transition-duration: .25s;
+    transition-timing-function: ease;
 }
 
-.category-card:hover, .card:hover {
-    outline-style: solid;
-    outline-color: var(--color-bluring-medium);
-    outline-width: .2rem;
-}
-
-.category-card:hover .layer,
-.card:hover .card-inner {
-    background: var(--color-linear-gradient);
-}
-
-.category-card1 {
+.card-1 {
     animation-delay: calc(5s * (7 - 1) * -1);
 }
 
-.category-card2 {
+.card-2 {
     animation-delay: calc(5s * (7 - 2) * -1);
 }
 
-.category-card3 {
+.card-3 {
     animation-delay: calc(5s * (7 - 3) * -1);
 }
 
-.category-card4 {
+.card-4 {
     animation-delay: calc(5s * (7 - 4) * -1);
 }
 
-.category-card5 {
+.card-5 {
     animation-delay: calc(5s * (7 - 5) * -1);
 }
 
-.category-card6 {
+.card-6 {
     animation-delay: calc(5s * (7 - 6) * -1);
 }
 
-.category-card7 {
+.card-7 {
     animation-delay: calc(5s * (7 - 7) * -1);
+}
+
+.card-container:hover {
+    outline-style: solid;
+    outline-color: var(--color-bluring-low);
+    outline-width: .8rem;
+    background: var(--color-linear-gradient);
+}
+
+.card-inner {
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+/* .card-container:hover .card-inner{
+    background: var(--color-linear-gradient);
+} */
+
+.card-container:hover p{
+    color: var(--color-primary);
+}
+
+.category-tab-item:hover {
+    outline-style: solid;
+    outline-color: var(--color-bluring-medium);
+    outline-width: .2rem;
+    background: var(--color-linear-gradient);
 }

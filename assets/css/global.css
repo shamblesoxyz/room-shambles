@@ -23,26 +23,39 @@ a {
     text-decoration: none;
 }
 
-p {
-    color: var(--color-secondary);
-}
-
-button {
-    font-family: var(--font-family-primary);
-    font-size: var(--font-size-h6);
-    color: var(--color-on-primary);
-    background-color: var(--color-primary);
-    border-radius: .8rem;
-    border: none;
-    padding: 1.2rem 2.4rem;
-}
-
-a:visited {
+/* a:visited {
     color: var(--color-primary);
 }
 
 a:active {
     color: var(--color-secondary);
+} */
+
+p, a {
+    color: var(--color-secondary);
+}
+
+.button {
+    background: transparent;
+    text-align: center;
+    border-radius: .8rem;
+    border: none;
+    padding: 1.2rem;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-h6);
+    padding: 1.2rem;
+    line-height: 1;
+}
+
+.button-filled {
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    padding: 1.2rem 2.4rem;
+}
+
+.button-outline {
+    color: var(--color-primary);
+    border: .1rem solid var(--color-primary);
 }
 
 li {
