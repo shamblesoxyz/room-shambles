@@ -7,6 +7,12 @@
     --font-size-h4: 2.4rem;
     --font-size-h5: 2rem;
     --font-size-h6: 1.6rem;
+    --font-size-h1-mobile: 3.2rem;
+    --font-size-h2-mobile: 2.2rem;
+    --font-size-h3-mobile: 2.2rem;
+    --font-size-h4-mobile: 2rem;
+    --font-size-h5-mobile: 2rem;
+    --font-size-h6-mobile: 1.6rem;
     --font-size-title: 2rem;
     --font-size-body: 1.6rem;
     --font-size-label: 1.2rem;
@@ -57,7 +63,7 @@ h4 {
 
 h5 {
     font-size: var(--font-size-h5);
-    line-height: var(--line-height-50);
+    line-height: var(--line-height-150);
 }
 
 h6 {

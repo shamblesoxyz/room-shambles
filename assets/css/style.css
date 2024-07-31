@@ -1,3 +1,11 @@
+#main{
+    overflow-x: clip;
+}
+
+.scrollable {
+    overflow-x: hidden;
+}
+
 .flex {
     display: flex;
 }
@@ -12,6 +20,10 @@
 
 .align-center {
     align-items: center;
+}
+
+.align-baseline {
+    align-items: baseline;
 }
 
 .header-padding {
@@ -52,7 +64,7 @@
 
 .flex-1 {
     flex-basis: 50%;
-    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .flex-wrap-reverse {
@@ -111,8 +123,8 @@
     right: 0;
 }
 
-.bottom-40 {
-    bottom: 4rem;
+.bottom--80 {
+    bottom: -8rem;
 }
 
 .right-40 {
@@ -131,7 +143,7 @@
     z-index: -1;
 }
 
-.pt-40vh {
+.padding-top {
     padding-top: 40vh;
 }
 
@@ -144,7 +156,7 @@
 }
 
 .background-intro-2 {
-    background: url('https://res.cloudinary.com/dxaobwm8l/image/upload/v1722151263/images/backgrounds/pqdsm053rs9mof2d51nc.png') bottom center /contain no-repeat;
+    background: url('https://res.cloudinary.com/dxaobwm8l/image/upload/v1722151263/images/backgrounds/pqdsm053rs9mof2d51nc.png') top center /contain no-repeat;
 }
 
 .center {
@@ -198,6 +210,10 @@
 
 .mb-40 {
     margin-bottom: 4rem;
+}
+
+.mb-48 {
+    margin-bottom: 4.8rem;
 }
 
 .mb-80 {
@@ -289,6 +305,14 @@
     width: 100%;
 }
 
+.width-max-content {
+    width: max-content;
+}
+
+.width-min-content {
+    width: min-content;
+}
+
 .category-tabs-container {
     margin-left: -0.8rem;
     margin-right: -0.8rem;
@@ -303,6 +327,7 @@
 }
 
 .category-tabs {
+    justify-content: space-between;
     padding: 0.8rem;
     background: var(--color-bluring-high);
     backdrop-filter: blur(1.6rem);
@@ -337,18 +362,24 @@ dialog {
 }
 
 .dialog-container {
-    padding: 4rem 4rem 12.8rem 4rem;
+    margin: 4rem 4rem 12.8rem 4rem;
 }
 
 .category-tag {
     font-family: var(--font-family-primary);
-    color: var(--color-on-primary);
+    font-size: 1.4rem;
+    color: var(--color-primary);
     padding: .4rem 1.2rem;
-    background: var(--color-primary);
+    /* background: var(--color-secondary); */
+    border: .1rem solid var(--color-secondary);
     border-radius: .8rem;
     display: inline-block;
 }
 
 .tag {
     border-top: .1rem solid var(--color-secondary);
+}
+
+.img-padding {
+    padding: 2.4rem;
 }
