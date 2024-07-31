@@ -61,7 +61,7 @@ function renderResources(resources) {
 
                     <div class="flex gap-16 mb-24">
                         <a href="${resource.link}" class="button button-filled flex-grow" target="_blank" rel="noopener noreferrer">Try it</a>
-                        <button class="button button-outline"><span class="material-symbols-rounded" onclick=expandResource('${resource.id}')>pan_zoom</span></button>
+                        <button class="button button-outline" onclick=expandResource('${resource.id}')><span class="material-symbols-rounded">pan_zoom</span></button>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,6 @@ function renderResources(resources) {
 
 function expandResource(resourceId) {
     let url = baseUrl + `?id=${resourceId}`
-    // console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -81,7 +80,7 @@ function expandResource(resourceId) {
             <div class="card-inner text-center" style="background: var(--color-radial-gradient); margin: 0;">
                 <img src="${data[0].image}" alt="" style="max-height: 27rem; margin: 3.2rem 3.2rem">
             </div>
-            <div class="relative flex flex-col justify-between">
+            <div class="relative flex flex-col flex-grow justify-between">
                 <div class="flex flex-col gap-24">
                     <h4 class="text-primary">${data[0].name}</h4>
                     <div>
@@ -99,7 +98,7 @@ function expandResource(resourceId) {
                     <a href="${data[0].link}" class="button button-filled flex-grow" target="_blank" rel="noopener noreferrer">Try it</a>
                 </div>
             </div>
-            <button class="button button-outline absolute bottom-40 right-40"><span class="material-symbols-rounded" onclick=closeResourceDialog()>close</span></button>
+            <button class="button button-outline absolute bottom-40 right-40" onclick=closeResourceDialog()><span class="material-symbols-rounded">close</span></button>
         </div>`
         expandResourceDailog.innerHTML = htmls
         showResourceDialog()
