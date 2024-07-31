@@ -48,22 +48,17 @@
     background: var(--color-linear-gradient);
 }
 
-.card-inner {
+.card-inner, .category-tab-item {
     transition-duration: .5s;
     transition-timing-function: ease;
 }
-
-/* .card-container:hover .card-inner{
-    background: var(--color-linear-gradient);
-} */
 
 .card-container:hover p{
     color: var(--color-primary);
 }
 
 .category-tab-item:hover {
-    outline-style: solid;
-    outline-color: var(--color-bluring-medium);
-    outline-width: .2rem;
     background: var(--color-linear-gradient);
+    color: var(--color-primary);
+    cursor: pointer;
 }

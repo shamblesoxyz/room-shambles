@@ -35,6 +35,10 @@ p, a {
     color: var(--color-secondary);
 }
 
+p {
+    letter-spacing: 0px;
+}
+
 .button {
     background: transparent;
     text-align: center;
@@ -44,7 +48,6 @@ p, a {
     font-family: var(--font-family-primary);
     font-size: var(--font-size-h6);
     padding: 1.2rem;
-    line-height: 1;
 }
 
 .button-filled {
@@ -56,6 +59,13 @@ p, a {
 .button-outline {
     color: var(--color-primary);
     border: .1rem solid var(--color-primary);
+    line-height: 1;
+}
+
+.button:hover,
+.button-filled:hover,
+.button-outline:hover {
+    cursor: pointer;
 }
 
 li {

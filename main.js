@@ -3,10 +3,11 @@ const $$ = document.querySelectorAll.bind(document)
 
 const resourcesBox = $('#resources-box')
 const tabs = $$('.category-tab-item')
+const expandResourceDailog = $('#expand-resource-dialog')
+// expandResourceDailog.showModal()
+const baseUrl = 'http://localhost:3000/resources'
 
-const res = 'http://localhost:3000/resources/'
-
-filter()
+filterByCategory()
 handleCategoryTab()
 
 function handleCategoryTab() {
@@ -15,22 +16,27 @@ function handleCategoryTab() {
             $('.category-tab-item.active').classList.remove('active')
             this.classList.add('active')
             if (this.innerText === 'All') {
-                filter()
+                filterByCategory()
             } else {
-                filter(this.innerText)
+                filterByCategory(this.innerText)
             }
         }
     })
 }
 
-function filterByCategory(resources ,category) {
-    let filteredResources = resources.filter(function(resource) {
-        return resource.category === `${category}`
+function filterByCategory(category) {
+    let url = baseUrl;
+    if (arguments.length == 1) {
+        url += `?category=${category}`
+    }
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        renderResources(data)
     })
-    return filteredResources
 }
 
-function renderResources(resources, num) {
+function renderResources(resources) {
     let htmls = ''
         
     resources.map(function(resource) {
@@ -40,10 +46,10 @@ function renderResources(resources, num) {
                     <img src=${resource.image} alt="" style="max-height: 27rem; margin: 3.2rem auto">
                 </div> 
 
-                <div class="flex flex-col gap-24 card-content px-24">
+                <div class="flex flex-col gap-48 card-content px-24">
                     <div>
                         <h4 class="mb-12">${resource.name}</h4>
-                        <h6 class="mb-12">${resource.category}</h6>
+                        <h6 class="mb-12 category-tag">${resource.category}</h6>
                         <div class="flex justify-between">`
         resource.tag.forEach(function(tag) {
             htmls += `<p>${tag}</p>`
@@ -55,7 +61,7 @@ function renderResources(resources, num) {
 
                     <div class="flex gap-16 mb-24">
                         <a href="${resource.link}" class="button button-filled flex-grow" target="_blank" rel="noopener noreferrer">Try it</a>
-                        <button class="button button-outline"><span class="material-symbols-rounded">pan_zoom</span></button>
+                        <button class="button button-outline"><span class="material-symbols-rounded" onclick=expandResource('${resource.id}')>pan_zoom</span></button>
                     </div>
                 </div>
             </div>
@@ -64,15 +70,54 @@ function renderResources(resources, num) {
     resourcesBox.innerHTML = htmls
 }
 
-function filter(category) {
-    fetch(res)
+function expandResource(resourceId) {
+    let url = baseUrl + `?id=${resourceId}`
+    // console.log(url)
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-        if (arguments.length != 1) {
-            renderResources(data, data.length)
-        } else {
-            let filteredResources = filterByCategory(data, category)
-            renderResources(filteredResources, filteredResources.length)
-        }
+        let htmls = `
+        <div class="flex gap-24 flex-wrap dialog-container relative">
+            <div class="card-inner text-center" style="background: var(--color-radial-gradient); margin: 0;">
+                <img src="${data[0].image}" alt="" style="max-height: 27rem; margin: 3.2rem 3.2rem">
+            </div>
+            <div class="relative flex flex-col justify-between">
+                <div class="flex flex-col gap-24">
+                    <h4 class="text-primary">${data[0].name}</h4>
+                    <div>
+                        <p class="category-tag">${data[0].category}</p>
+                    </div>
+                    <p>${data[0].description}</p>
+                    <div class="flex gap-48 tag">`
+        data[0].tag.forEach(function(tag) {
+            htmls += `<p>${tag}</p>`
+            })
+        htmls += `
+                    </div>
+                </div>
+                <div class="flex">
+                    <a href="${data[0].link}" class="button button-filled flex-grow" target="_blank" rel="noopener noreferrer">Try it</a>
+                </div>
+            </div>
+            <button class="button button-outline absolute bottom-40 right-40"><span class="material-symbols-rounded" onclick=closeResourceDialog()>close</span></button>
+        </div>`
+        expandResourceDailog.innerHTML = htmls
+        showResourceDialog()
     })
+
 }
+
+function showResourceDialog() {
+    expandResourceDailog.showModal()
+}
+
+function closeResourceDialog() {
+    expandResourceDailog.close()
+}
+
+expandResourceDailog.addEventListener("click", (event) => {
+    let dialogContainer = $('.dialog-container')
+    if(!dialogContainer.contains(event.target)) {
+        expandResourceDailog.close()
+    }
+})

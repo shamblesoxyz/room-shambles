@@ -29,6 +29,7 @@
     --color-bluring-medium: rgba(192, 202, 222, 0.15);
     --color-bluring-high: rgba(33, 42, 55, 0.15);
     --color-bluring-highest: rgba(33, 42, 55, 0.40);
+    --color-backdrop-modal: rgba(33, 42, 55, 0.9);
 }
   
 [data-themes-mode="light"] {
