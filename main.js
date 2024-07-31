@@ -5,7 +5,7 @@ const resourcesBox = $('#resources-box')
 const tabs = $$('.category-tab-item')
 const expandResourceDailog = $('#expand-resource-dialog')
 // expandResourceDailog.showModal()
-const baseUrl = 'http://localhost:3000/resources'
+const baseUrl = 'https://6d3l73-8080.csb.app/resources'
 
 filterByCategory()
 handleCategoryTab()
