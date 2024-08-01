@@ -378,8 +378,13 @@ dialog {
 
 .tag {
     border-top: .1rem solid var(--color-secondary);
+    gap: 2.4rem;
 }
 
 .img-padding {
-    padding: 2.4rem;
+    padding: 3.2rem;
+}
+
+.img-width {
+    width: 36rem;
 }

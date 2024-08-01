@@ -77,10 +77,10 @@ function expandResource(resourceId) {
     .then(data => {
         let htmls = `
         <div class="flex gap-48 flex-wrap dialog-container relative">
-            <div class="card-inner text-center flex-1" style="background: var(--color-radial-gradient); margin: 0;">
-                <img class="img-padding" src="${data[0].image}" alt="">
+            <div class="card-inner text-center" style="background: var(--color-radial-gradient); margin: 0;">
+                <img class="img-padding img-width" src="${data[0].image}" alt="">
             </div>
-            <div class="relative flex flex-col justify-between flex-grow">
+            <div class="relative flex flex-col justify-between flex-1">
                 <div class="flex flex-col gap-24">
                     <div class="flex flex-wrap justify-between align-baseline gap-12">
                         <h4 class="text-primary">${data[0].name}</h4>
@@ -89,7 +89,7 @@ function expandResource(resourceId) {
                         </div>
                     </div>
                     <p>${data[0].description}</p>
-                    <div class="flex gap-24 tag mb-40">`
+                    <div class="flex tag mb-40">`
         data[0].tag.forEach(function(tag) {
             htmls += `<p>${tag}</p>`
             })

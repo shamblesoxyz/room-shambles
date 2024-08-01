@@ -75,7 +75,15 @@
     }
 
     .padding-top {
-        padding-top: 30vh;
+        padding-top: 20vh;
+    }
+
+    .tag {
+        justify-content: space-between;
+    }
+
+    .img-width {
+        width: min-content;
     }
 
     h1 {
