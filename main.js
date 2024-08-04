@@ -41,14 +41,14 @@ function renderResources(resources) {
         
     resources.map(function(resource) {
         htmls+= `
-            <div class="card-container z-1 flex flex-col gap-16">
+            <div class="card-container z-1 flex flex-col gap-16" onclick=expandResource('${resource.id}')>
                 <div class="card-inner text-center" style="background: var(--color-radial-gradient)">
                     <img src=${resource.image} alt="" style="max-height: 27rem; margin: 3.2rem auto">
                 </div> 
 
                 <div class="flex flex-col gap-48 card-content px-24">
                     <div>
-                        <h4 class="mb-12">${resource.name}</h4>
+                        <h3 class="mb-12">${resource.name}</h3>
                         <h6 class="mb-12 category-tag">${resource.category}</h6>
                         <div class="flex justify-between">`
         resource.tag.forEach(function(tag) {
@@ -83,7 +83,7 @@ function expandResource(resourceId) {
             <div class="relative flex flex-col justify-between flex-1">
                 <div class="flex flex-col gap-24">
                     <div class="flex flex-wrap justify-between align-baseline gap-12">
-                        <h4 class="text-primary">${data[0].name}</h4>
+                        <h3 class="text-primary">${data[0].name}</h3>
                         <div>
                             <h6 class="category-tag">${data[0].category}</h6>
                         </div>
@@ -96,11 +96,11 @@ function expandResource(resourceId) {
         htmls += `
                     </div>
                 </div>
-                <div class="flex">
+                <div class="flex gap-16">
                     <a href="${data[0].link}" class="button button-filled flex-grow" target="_blank" rel="noopener noreferrer">Try it</a>
+                    <button class="button button-outline" onclick=closeResourceDialog()><span class="material-symbols-rounded">close</span></button>
                 </div>
             </div>
-            <button class="button button-outline absolute bottom--80 right-0" onclick=closeResourceDialog()><span class="material-symbols-rounded">close</span></button>
         </div>`
         expandResourceDailog.innerHTML = htmls
         showResourceDialog()

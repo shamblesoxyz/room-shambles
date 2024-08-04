@@ -362,12 +362,11 @@ dialog {
 }
 
 .dialog-container {
-    margin: 4rem 4rem 12.8rem 4rem;
+    margin: 4rem;
 }
 
 .category-tag {
     font-family: var(--font-family-primary);
-    font-size: 1.4rem;
     color: var(--color-primary);
     padding: .4rem 1.2rem;
     /* background: var(--color-secondary); */
